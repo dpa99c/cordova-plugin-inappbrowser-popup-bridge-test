@@ -7,11 +7,15 @@
     "license": "MIT",
     "dependencies": {
         "cordova-android": "^6.2.3",
-        "cordova-plugin-whitelist": "1"
+        "cordova-plugin-popupbridge": "git+https://github.com/dpa99c/cordova-plugin-popupbridge.git",
+        "cordova-plugin-whitelist": "1",
+        "cordova-plugin-wkwebview-engine": "git+https://github.com/dpa99c/cordova-plugin-wkwebview-engine.git#popup_bridge"
     },
     "cordova": {
         "plugins": {
             "cordova-plugin-whitelist": {},
+            "cordova-plugin-popupbridge": {},
+            "cordova-plugin-wkwebview-engine": {}
         }
     }
 }
