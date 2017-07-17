@@ -1,5 +1,5 @@
 {
-    "name": "cordova-popupbridge-test",
+    "name": "io.cordova.popupbridge.test",
     "displayName": "PopupBridge Test",
     "version": "1.0.0",
     "description": "",
@@ -16,6 +16,9 @@
             "cordova-plugin-whitelist": {},
             "cordova-plugin-popupbridge": {},
             "cordova-plugin-wkwebview-engine": {}
-        }
+        },
+        "platforms": [
+            "android"
+        ]
     }
 }
