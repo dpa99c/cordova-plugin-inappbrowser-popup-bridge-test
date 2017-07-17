@@ -1,0 +1,17 @@
+{
+    "name": "cordova-popupbridge-test",
+    "displayName": "PopupBridge Test",
+    "version": "1.0.0",
+    "description": "",
+    "author": "Dave Alden",
+    "license": "MIT",
+    "dependencies": {
+        "cordova-android": "^6.2.3",
+        "cordova-plugin-whitelist": "1"
+    },
+    "cordova": {
+        "plugins": {
+            "cordova-plugin-whitelist": {},
+        }
+    }
+}
