@@ -15,12 +15,19 @@ function openIframe(){
 
 function onLoadFrame(){
     try{
-    if(iframe && iframe.contentWindow && !iframe.contentWindow.popupBridge){
-        iframe.contentWindow.popupBridge = window.popupBridge;
-    }
-    window.popupBridge.onComplete = function(){
-        iframe.contentWindow.popupBridge.onComplete.apply(iframe.contentWindow, arguments);
-    };
+        if(!window.popupBridge){
+            throw "PopupBridge extension is not present on Webview";
+        }
+
+        // Augment the iframe window with popup bridge
+        if(iframe && iframe.contentWindow && !iframe.contentWindow.popupBridge){
+            iframe.contentWindow.popupBridge = window.popupBridge;
+        }
+
+        // Forward the message return from the popup to the iframe
+        window.popupBridge.onComplete = function(){
+            iframe.contentWindow.popupBridge.onComplete.apply(iframe.contentWindow, arguments);
+        };
     }catch(e){
         var msg = "Error: " + e;
         console.log(msg);
