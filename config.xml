@@ -19,8 +19,9 @@
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
     </platform>
-    <plugin name="cordova-plugin-whitelist" spec="1" />
-    <plugin name="cordova-plugin-popupbridge" spec="https://github.com/dpa99c/cordova-plugin-popupbridge.git" />
-    <plugin name="cordova-plugin-wkwebview-engine" spec="https://github.com/dpa99c/cordova-plugin-wkwebview-engine#popup_bridge" />
-    <engine name="android" spec="~6.2.3" />
+    <engine name="android" spec="^6.2.3" />
+    <engine name="ios" spec="^4.4.0" />
+    <plugin name="cordova-plugin-popupbridge" spec="git+https://github.com/dpa99c/cordova-plugin-popupbridge.git" />
+    <plugin name="cordova-plugin-whitelist" spec="^1.3.2" />
+    <plugin name="cordova-plugin-wkwebview-engine" spec="git+https://github.com/dpa99c/cordova-plugin-wkwebview-engine.git#popup_bridge" />
 </widget>
