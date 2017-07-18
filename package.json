@@ -7,7 +7,7 @@
     "license": "MIT",
     "dependencies": {
         "cordova-android": "^6.2.3",
-        "cordova-ios": "^4.4.0",
+        "cordova-ios": "^4.3.1",
         "cordova-plugin-device": "^1.1.6",
         "cordova-plugin-inappbrowser": "git+https://github.com/dpa99c/cordova-plugin-themeablebrowser.git#popup_bridge",
         "cordova-plugin-whitelist": "^1.3.2",
