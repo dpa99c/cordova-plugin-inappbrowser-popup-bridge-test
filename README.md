@@ -1,7 +1,6 @@
 Cordova PopupBridge Test App
 ============================
 
-# Overview
 This repo contains a [Cordova](http://cordova.apache.org/) project which builds a test app for Android and iOS to illustrate usage of Braintree's PopupBridge libraries for [Android](https://github.com/braintree/popup-bridge-android) and [iOS](https://github.com/braintree/popup-bridge-ios) within the context of a Cordova-based app.
 
 The purpose of PopupBridge is to allow Webviews to open popup windows in a browser and send data back to the parent page in the Webview. This is essential for Web-based PayPal checkout flows which use the [Braintree JS SDK](https://github.com/braintree/braintree-web) which supports popup emulation via PopupBridge.
