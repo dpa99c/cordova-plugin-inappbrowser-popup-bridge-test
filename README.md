@@ -20,11 +20,11 @@ This test app supports iOS 8.0+ and Android 4.1+.
 PopupBridge itself supports iOS 9.0+ and Android 4.4+, so when running on earlier versions on which PopupBridge is not supported, the test app falls back to launching the system browser instead of in-app browser. This means the user is taken out of the original app to the default browser app, but at least can fulfill their PayPal payment before manually navigating back to the original app.
 
 Notes: 
-- `cordova-ios@4.4.0` dropped support for iOS 8, so this app is pinned to used `cordova-ios@4.3.1`.
+- `cordova-ios@4.4.0` dropped support for iOS 8, so this app is pinned to use `cordova-ios@4.3.1`.
 - The PopupBridge code contained in the modified WKWebView plugin has itself been modified with pre-compile directives to enable it to compile on iOS 8.0 but have null functionality.
 
 # Test app functionality
-- The app consists of a simple, single page Cordova app written with basic HTML 5
+- The app consists of a simple, single page Cordova app written with basic HTML5
 - The "Open Test Page In IAB" button opens the [Braintree PopupBridge Example webpage](https://braintree.github.io/popup-bridge-example) in:
     - PopupBridge-enabled in-appbrowser on iOS 9.0+ and Android 4.4+
     - Default web browser app on iOS 8.x and Android 4.1 to 4.3 
