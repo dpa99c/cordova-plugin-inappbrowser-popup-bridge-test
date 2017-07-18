@@ -1,4 +1,4 @@
-var URL = "https://braintree.github.io/popup-bridge-example/";
+var URL = "https://m.buytickets.greateranglia.co.uk/";
 
 var webView, platform, iabOpts;
 if( navigator.platform.substr(0,2) === 'iP' ) {    // iOS detected
