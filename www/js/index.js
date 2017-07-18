@@ -11,8 +11,12 @@ if( navigator.platform.substr(0,2) === 'iP' ) {    // iOS detected
     }
 }else{
     platform = "Android";
-    webView = "Chromium" ;
     iabOpts = 'location=yes';
+    if(navigator.userAgent.toLowerCase().indexOf('crosswalk') > -1) {
+        webView = "Crosswalk" ;
+    } else {
+        webView = "System" ;
+    }
 }
 
 
