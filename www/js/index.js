@@ -1,41 +1,24 @@
 var URL = "https://braintree.github.io/popup-bridge-example/";
-var $iframe, iframe, $closeButton;
 
-function openIframe(){
-    $iframe = $('<iframe></iframe>');
-    $iframe.on('load', onLoadFrame);
-    $iframe.appendTo('body');
-    $iframe.attr('src', URL);
-    iframe = $iframe[0];
-
-    $closeButton = $('<button id="close">Close</button>');
-    $closeButton.on('click', closeIframe);
-    $closeButton.appendTo('body');
-}
-
-function onLoadFrame(){
-    try{
-        if(!window.popupBridge){
-            throw "PopupBridge extension is not present on Webview";
-        }
-
-        // Augment the iframe window with popup bridge
-        if(iframe && iframe.contentWindow && !iframe.contentWindow.popupBridge){
-            iframe.contentWindow.popupBridge = window.popupBridge;
-        }
-
-        // Forward the message return from the popup to the iframe
-        window.popupBridge.onComplete = function(){
-            iframe.contentWindow.popupBridge.onComplete.apply(iframe.contentWindow, arguments);
-        };
-    }catch(e){
-        var msg = "Error: " + e;
-        console.log(msg);
-        alert(msg);
+var webView;
+if( navigator.platform.substr(0,2) === 'iP' ) {    // iOS detected
+    if( window.webkit && window.webkit.messageHandlers ) {
+        webView = "WKWebView" ;
+    }else{
+        webView = "UIWebView" ;
     }
+}else{
+    webView = "Chromium" ;
 }
 
-function closeIframe(){
-    $iframe.remove();
-    $closeButton.remove();
+
+function openIAB(){
+    cordova.InAppBrowser.open(URL, '_blank', 'location=no,toolbar=yes');
 }
+
+function onDeviceReady(){
+    console.log("deviceready");
+    $('#webview').html(webView);
+}
+
+$(document).on('deviceready', onDeviceReady);

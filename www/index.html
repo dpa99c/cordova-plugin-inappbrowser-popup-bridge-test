@@ -18,36 +18,17 @@
             background-color: #b0fffd;
             text-align: center;
         }
-        iframe{
-            border: none;
-            height: 100vh;
-            width: 100%;
-            position: absolute;
-            top: 0;
-            left:0;
-            background-color: white;
-        }
+
         button#open{
             padding: 16px;
-        }
-        button#close{
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background-color: #dddddd;
-            text-align: left;
-            z-index: 10;
-            border: none;
-            color: blue;
-            font-size: 20px;
-            padding: 8px 16px;
         }
     </style>
 </head>
 
 <body>
     <h2>PopupBridge App</h2>
-    <button id="open" onclick="openIframe()">Open iframe</button>
+    <button id="open" onclick="openIAB()">Open</button>
+    
+    <p>Webview: <span id="webview"></span></p>
 </body>
 </html>
