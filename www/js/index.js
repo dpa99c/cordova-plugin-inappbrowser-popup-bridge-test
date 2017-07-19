@@ -1,4 +1,5 @@
-var URL = "https://m.buytickets.greateranglia.co.uk/";
+//var URL = "https://m.buytickets.greateranglia.co.uk/"; //PRODUCTION
+var URL = "https://et2-m-greateranglia.ttlnonprod.com/"; //NON-PRODUCTION
 
 var webView, iabOpts, useIAB, osVersion;
 
