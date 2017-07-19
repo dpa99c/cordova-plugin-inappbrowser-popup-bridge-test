@@ -1,10 +1,10 @@
 var URL = "https://braintree.github.io/popup-bridge-example/";
 
-var webView, iabOpts, useIAB, osVersion;
+var webView, iabOpts, useIAB, osVersion, iab;
 
 function openIAB(){
     var target = useIAB ? '_blank' : '_system';
-    cordova.InAppBrowser.open(URL, target, iabOpts);
+    iab = cordova.InAppBrowser.open(URL, target, iabOpts);
 }
 
 function onDeviceReady(){
