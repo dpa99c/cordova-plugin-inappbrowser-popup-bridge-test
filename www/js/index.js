@@ -2,19 +2,24 @@ var URL = "https://braintree.github.io/popup-bridge-example/";
 
 var webView, iabOpts, useIAB, osVersion, iab;
 
+function log(msg){
+    console.log(msg);
+    $('#log').append("<p>"+msg+"</p>");
+}
+
 function openIAB(){
     var target = useIAB ? '_blank' : '_system';
     iab = cordova.InAppBrowser.open(URL, target, iabOpts);
 
     iab.addEventListener('loadstart', function(e) {
-        console.log("received 'loadstart' for URL: "+ e.url);
+        log("received 'loadstart' for URL: "+ e.url);
     });
     iab.addEventListener('loadstop', function(e) {
-        console.log("received 'loadstop' for URL: "+ e.url);
+        log("received 'loadstop' for URL: "+ e.url);
         testInjection();
     });
     iab.addEventListener('loaderror', function(e) {
-        console.log("received 'loaderror' for URL: "+ e.url);
+        log("received 'loaderror' for URL: "+ e.url);
     });
 }
 
@@ -23,19 +28,19 @@ function testInjection(){
         code: "document.getElementsByTagName('h1')[0].innerHTML = document.getElementsByTagName('h1')[0].innerHTML + \" (injected)\";"
     }, function(returnValue){
         returnValue = returnValue[0];
-       console.log("executeScript returned value: " + returnValue);
+
+       log("executeScript returned value: " + returnValue);
     });
 
     iab.insertCSS({
         code: "body *{color: red !important;}"
     }, function(){
-        console.log("insertCSS returned");
+        log("insertCSS returned");
     });
 }
 
 function onDeviceReady(){
     console.log("deviceready");
-    console.log("PopupBridge present on Cordova Webview: " + window.popupBridge);
 
     osVersion = parseFloat(device.version);
 
