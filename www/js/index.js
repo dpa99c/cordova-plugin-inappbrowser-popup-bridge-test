@@ -20,7 +20,7 @@ function openIAB(){
 
 function testInjection(){
     iab.executeScript({
-        code: "return window.location.href"
+        code: "alert('foo')"
     }, function(returnValue){
        console.log("executeScript returned value: " + JSON.stringify(returnValue));
     });
