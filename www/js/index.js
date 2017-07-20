@@ -5,6 +5,31 @@ var webView, iabOpts, useIAB, osVersion, iab;
 function openIAB(){
     var target = useIAB ? '_blank' : '_system';
     iab = cordova.InAppBrowser.open(URL, target, iabOpts);
+
+    iab.addEventListener('loadstart', function(e) {
+        console.log("received 'loadstart' for URL: "+ e.url);
+    });
+    iab.addEventListener('loadstop', function(e) {
+        console.log("received 'loadstop' for URL: "+ e.url);
+        testInjection();
+    });
+    iab.addEventListener('loaderror', function(e) {
+        console.log("received 'loaderror' for URL: "+ e.url);
+    });
+}
+
+function testInjection(){
+    iab.executeScript({
+        code: "return window.location.href"
+    }, function(returnValue){
+       console.log("executeScript returned value: " + JSON.stringify(returnValue));
+    });
+
+    iab.insertCSS({
+        code: "body *{color: red !important;}"
+    }, function(){
+        console.log("insertCSS returned");
+    });
 }
 
 function onDeviceReady(){
