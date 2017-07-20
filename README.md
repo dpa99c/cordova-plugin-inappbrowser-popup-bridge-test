@@ -11,7 +11,7 @@ This test app makes use of a [modified version](https://github.com/dpa99c/cordov
 For iOS:
 - PopupBridge requires the newer [WKWebview](https://developer.apple.com/documentation/webkit/wkwebview).
 - By default, the Cordova app and cordova-plugin-inappbrowser use the legacy [UIWebView](https://developer.apple.com/documentation/uikit/uiwebview).
-- Therefore, this test app uses a [modified version](https://github.com/dpa99c/cordova-plugin-wkwebview-engine/tree/popup_bridge) of [cordova-plugin-wkwebview-engine](https://github.com/apache/cordova-plugin-wkwebview-engine) to which PopupBridge support has been added.
+- Therefore, this test app also includes [cordova-plugin-wkwebview-engine](https://github.com/apache/cordova-plugin-wkwebview-engine) which adds WKWebView support to Cordova.
 - The [modified version](https://github.com/dpa99c/cordova-plugin-themeablebrowser/tree/popup_bridge) of [cordova-plugin-inappbrowser](https://github.com/apache/cordova-plugin-inappbrowser) has also been adapted to use WKWebView instead of UIWebView.
 
 # Supported platform versions
