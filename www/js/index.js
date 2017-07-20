@@ -20,9 +20,10 @@ function openIAB(){
 
 function testInjection(){
     iab.executeScript({
-        code: "alert('foo')"
+        code: "document.getElementsByTagName('h1')[0].innerHTML = document.getElementsByTagName('h1')[0].innerHTML + \" (injected)\";"
     }, function(returnValue){
-       console.log("executeScript returned value: " + JSON.stringify(returnValue));
+        returnValue = returnValue[0];
+       console.log("executeScript returned value: " + returnValue);
     });
 
     iab.insertCSS({
