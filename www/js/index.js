@@ -25,7 +25,7 @@ function openIAB(){
 
 function testInjection(){
     iab.executeScript({
-        code: "document.getElementsByTagName('h1')[0].innerHTML = document.getElementsByTagName('h1')[0].innerHTML + \" (injected)\";"
+        code: "document.getElementsByTagName('h1')[0].innerHTML = document.getElementsByTagName('h1')[0].innerHTML + \" (injected)\";(function() { var body = document.querySelector('body'); var bottom = document.createElement('div'); bottom.innerHTML = 'Absolute Bottom'; bottom.classList.add('bottom'); body.appendChild(bottom); })();"
     }, function(returnValue){
         returnValue = returnValue[0];
 
@@ -33,7 +33,8 @@ function testInjection(){
     });
 
     iab.insertCSS({
-        code: "body *{color: red !important;}"
+                  code: "body *{color: red !important;} \
+                  .bottom { position: fixed; bottom: 0; z-index: 500; width: 100%; background: #fff; color: #495965; -moz-box-shadow: 0 0 5px #888; -webkit-box-shadow: 0 0 5px #888; box-shadow: 0 0 5px #888; padding: 10px; font-size: 20px;}"
     }, function(){
         log("insertCSS returned");
     });
@@ -55,7 +56,7 @@ function onDeviceReady(){
         useIAB = osVersion >= 9 && webView === "WKWebView";
 
     }else{
-        iabOpts = 'location=yes';
+        iabOpts = 'location=no';
         if(navigator.userAgent.toLowerCase().indexOf('crosswalk') > -1) {
             webView = "Crosswalk" ;
         } else {
