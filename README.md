@@ -14,7 +14,7 @@ PopupBridge itself supports iOS 9.0+ and Android 4.4+, so when running on earlie
 
 ## iOS notes
 
-- By default, the Cordova app and cordova-plugin-inappbrowser use the legacy [UIWebView](https://developer.apple.com/documentation/uikit/uiwebview).
+- By default, Cordova apps and `cordova-plugin-inappbrowser` use the legacy [UIWebView](https://developer.apple.com/documentation/uikit/uiwebview).
 - PopupBridge requires the newer [WKWebview](https://developer.apple.com/documentation/webkit/wkwebview).
     - The PopupBridge code contained in the plugin has been modified with pre-compile directives to enable it to compile on iOS 8.0 but have null functionality.
 - The [modified version](https://github.com/dpa99c/cordova-plugin-themeablebrowser/tree/popup_bridge) of [cordova-plugin-inappbrowser](https://github.com/apache/cordova-plugin-inappbrowser) has also been adapted to use WKWebView instead of UIWebView.
@@ -53,7 +53,6 @@ If not, see the [Cordova Getting Started guide](http://cordova.apache.org/#getst
 
 ## iOS
 - From the root directory, add the iOS platform: `cordova platform add ios`
-- Add the WKWebview plugin: `cordova plugin add cordova-plugin-wkwebview-engine`
 - Connect a test device
 - Run the app: `cordova run ios --device --developmentTeam=TEAM_ID`
     - Note: if you don't specify your Apple Team ID on the command line, you'll need to open the iOS project `platforms/ios/PopupBridge Test.xcodeproj` in Xcode and manually configure signing.
