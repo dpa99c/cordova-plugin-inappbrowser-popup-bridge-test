@@ -17,7 +17,7 @@ PopupBridge itself supports iOS 9.0+ and Android 4.4+, so when running on earlie
 - By default, Cordova apps and `cordova-plugin-inappbrowser` use the legacy [UIWebView](https://developer.apple.com/documentation/uikit/uiwebview).
 - PopupBridge requires the newer [WKWebview](https://developer.apple.com/documentation/webkit/wkwebview).
     - The PopupBridge code contained in the plugin has been modified with pre-compile directives to enable it to compile on iOS 8.0 but have null functionality.
-- [cordova-plugin-inappbrowser-popup-bridge](https://github.com/dpa99c/cordova-plugin-inappbrowser-popup-bridge) has been adapted to use WKWebView instead of UIWebView and is an extension of [cordova-plugin-inappbrowser-wkwebview](https://github.com/dpa99c/cordova-plugin-inappbrowser-wkwebview)
+- Therefore this plugin has been adapted to use WKWebView instead of UIWebView and is an extension of [cordova-plugin-inappbrowser-wkwebview](https://github.com/dpa99c/cordova-plugin-inappbrowser-wkwebview)
 - `cordova-ios@4.4.0` dropped support for iOS 8, so this app is pinned to use `cordova-ios@4.3.1`.
 
 
