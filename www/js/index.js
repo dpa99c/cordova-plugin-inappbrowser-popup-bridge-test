@@ -1,7 +1,7 @@
-var URL = "https://braintree.github.io/popup-bridge-example/";
+var URL = "http://demos.workingedge.co.uk/iab.html";
 
-var webView, iabOpts, useIAB, osVersion, iab;
-
+var webView, iabOpts, useIAB, osVersion, iab, updateTimerId;
+var outcomeReceived = false;
 function log(msg){
     console.log(msg);
     $('#log').append("<p>"+msg+"</p>");
@@ -24,20 +24,23 @@ function openIAB(){
 }
 
 function testInjection(){
-    iab.executeScript({
-        code: "document.getElementsByTagName('h1')[0].innerHTML = document.getElementsByTagName('h1')[0].innerHTML + \" (injected)\";(function() { var body = document.querySelector('body'); var bottom = document.createElement('div'); bottom.innerHTML = 'Absolute Bottom'; bottom.classList.add('bottom'); body.appendChild(bottom); })();"
-    }, function(returnValue){
-        returnValue = returnValue[0];
-
-       log("executeScript returned value: " + returnValue);
-    });
-
-    iab.insertCSS({
-                  code: "body *{color: red !important;} \
-                  .bottom { position: fixed; bottom: 0; z-index: 500; width: 100%; background: #fff; color: #495965; -moz-box-shadow: 0 0 5px #888; -webkit-box-shadow: 0 0 5px #888; box-shadow: 0 0 5px #888; padding: 10px; font-size: 20px;}"
-    }, function(){
-        log("insertCSS returned");
-    });
+    updateTimerId = setInterval(function () {
+        iab.executeScript({
+            code: "window.paymentOutcome"
+        }, function (returnValue) {
+            var paymentOutcome = returnValue[0];
+            if(paymentOutcome && !outcomeReceived){
+                outcomeReceived = true;
+                if(paymentOutcome === true){
+                    log("Payment successful");
+                }else{
+                    log("Payment error: "+ paymentOutcome);
+                }
+                clearInterval(updateTimerId);
+                iab.close();
+            }
+        });
+    }, 100);
 }
 
 function onDeviceReady(){
