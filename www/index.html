@@ -4,7 +4,7 @@
     <meta http-equiv="Content-Security-Policy" content="default-src * gap://ready file:; style-src 'self' 'unsafe-inline'; img-src * 'self' data:; script-src * 'unsafe-inline' 'unsafe-eval'">
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
-    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, viewport-fit=cover">
 
     <title>Crosswalk PUB Test</title>
 
@@ -17,6 +17,12 @@
             margin: 0;
             background-color: #b0fffd;
             text-align: center;
+
+            /* Safe area for iPhone X family */
+            padding-top: constant(safe-area-inset-top);
+            padding-top: env(safe-area-inset-top);
+            padding-bottom: constant(safe-area-inset-top);
+            padding-bottom: env(safe-area-inset-top);
         }
 
         button#open{
