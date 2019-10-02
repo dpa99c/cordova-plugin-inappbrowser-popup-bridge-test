@@ -20,6 +20,7 @@
     <preference name="SplashShowOnlyFirstTime" value="false" />
     <preference name="KeyboardDisplayRequiresUserAction" value="false" />
     <platform name="android">
+        <preference name="android-minSdkVersion" value="21" />
         <allow-intent href="market:*" />
     </platform>
     <platform name="ios">
