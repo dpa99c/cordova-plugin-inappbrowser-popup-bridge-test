@@ -36,6 +36,4 @@
         <splash src="res/screen/ios/Default@2x~ipad~anyany.png" />
         <splash src="res/screen/ios/Default@2x~ipad~comany.png" />
     </platform>
-    <engine name="android" spec="^6.2.3" />
-    <engine name="ios" spec="latest" />
 </widget>
