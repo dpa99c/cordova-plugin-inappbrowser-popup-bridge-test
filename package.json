@@ -1,12 +1,11 @@
 {
     "name": "io.cordova.popupbridge.test",
     "displayName": "PopupBridge Test",
-    "version": "4.0.0",
+    "version": "5.0.0",
     "description": "Demonstrates usage of Braintree's PopupBridge via the Cordova InappBrowser to add support for emulated popups for PayPal payments",
     "author": "Dave Alden",
     "license": "MIT",
     "dependencies": {
-        "cordova-ios": "^6.1.0",
         "cordova-plugin-device": "2.0.3",
         "cordova-plugin-dialogs": "2.0.2",
         "cordova-plugin-inappbrowser-popup-bridge": "latest",
@@ -24,6 +23,7 @@
         ]
     },
     "devDependencies": {
+        "cordova-ios": "^6.1.0",
         "cordova-android": "^10.1.1"
     }
 }
